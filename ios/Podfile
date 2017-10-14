@@ -1,0 +1,73 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'DGTracker' do
+  inherit! :search_paths
+  
+  pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'BatchedBridge', # Required For React Native 0.45.0+
+    'Core',
+    'DevSupport',
+    'RCTImage',
+    'RCTNetwork',
+    'RCTText',
+    'RCTWebSocket',
+    'RCTCameraRoll',
+    'RCTActionSheet',
+    'RCTGeolocation',
+    'RCTLinkingIOS',
+    'RCTSettings',
+    'RCTVibration',
+  ]
+
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  # pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
+  # pod 'Firebase/Messaging'
+  pod 'Firebase/Storage'
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
+
+  pod 'react-native-maps', path: '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', path: '../node_modules/react-native-maps'
+  pod 'GoogleMaps' 
+
+  pod 'react-native-fbsdk', :subspecs => [
+    'Core',
+    'Login',
+    'Share',
+  ], :path => '../node_modules/react-native-fbsdk/iOS'
+
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+  
+  target 'DGTrackerTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'DGTracker-tvOS' do
+  
+  # Pods for DGTracker-tvOS
+  target 'DGTracker-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == 'react-native-google-maps'
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
+      end
+    end
+
+    if target.name == "React"
+      target.remove_from_project
+    end
+  end
+end

@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "rules": {
+    // "no-const-assign": "warn",
+    // "no-this-before-super": "warn",
+    // "no-undef": "off",
+    // "no-unreachable": "warn",
+    "no-unused-vars": "warn",
+    // "constructor-super": "warn",
+    // "valid-typeof": "warn",
+    "no-console": "off",
+    // "react/prop-types": "off",
+    "react/display-name": "off",
+    "semi": [
+      "error",
+      "never"
+    ]
+  },
+  "globals": {
+    "alert": true,
+    "require": true,
+    "console": true,
+    "navigator": true,
+    "window": true,
+    "setTimeout": true,
+    "module": true
+  }
+}
