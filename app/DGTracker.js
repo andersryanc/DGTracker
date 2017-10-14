@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect, Provider } from 'react-redux'
 import { addNavigationHelpers } from 'react-navigation'
-import { Keyboard } from 'react-native'
+import { Keyboard, StatusBar } from 'react-native'
 
 import { RootNavigator } from './config/routes'
 import configureStore from './redux/store'
 import { update as updateKeyboard } from './redux/actions/keyboard'
 import { login, logout } from './redux/actions/user'
 import firebase from './config/firebase'
+
+StatusBar.setHidden(false)
+StatusBar.setBarStyle('light-content')
 
 const store = configureStore()
 
