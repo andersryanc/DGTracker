@@ -4,17 +4,6 @@
 - Run `npm i` to install all project dependencies
 - Download [Genymotion](https://www.genymotion.com/) or other android emulator for testing
 
-# Useful bash aliases
-
-```bash
-# react-native CLI
-alias rnri="react-native run-ios"
-alias rnra="react-native run-android"
-alias rnl="react-native link"
-alias rnli="react-native log-ios"
-alias rnla="react-native log-andoird"
-```
-
 # Development
 
 Start by installing [React-Native-Debugger](https://github.com/jhen0409/react-native-debugger) with:
@@ -35,7 +24,7 @@ If you want to run the debugger on your physical device (iOS) you will need to u
 
 # iOS Code Signing
 
-If you make any changes to these settings, ie. team or profiles, etc... make sure to check the "DeedzTests" target as well to ensure they match up.
+If you make any changes to these settings, ie. team or profiles, etc... make sure to check the "DGTrackerTests" target as well to ensure they match up.
 
 # Android Studio Emulator
 
@@ -83,7 +72,7 @@ I installed Platform: x86, Android: 7.1 and Variant: Pico.
 
 # Google API Credentials
 
-In order for the Google Maps API to work properly, you will need to update the `Deedz Android App API Key` in the [Google Developers Console](https://console.developers.google.com/apis/credentials/) under the "Deedz Development" and/or "Deedz Production" projects. We restrict use for android apps based on the package name and SHA-1 certificate fingerprint. Run the following command to check your SHA-1 fingerprint and then copy and add a new line to the developer console.
+In order for the Google Maps API to work properly, you will need to update the `DGTracker Android App API Key` in the [Google Developers Console](https://console.developers.google.com/apis/credentials/) under the "DGTracker Development" and/or "DGTracker Production" projects. We restrict use for android apps based on the package name and SHA-1 certificate fingerprint. Run the following command to check your SHA-1 fingerprint and then copy and add a new line to the developer console.
 
 ```
 keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
