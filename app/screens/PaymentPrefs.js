@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Keyboard, StatusBar, StyleSheet, View } from 'react-native'
 import { PreferencesHeader } from '../components'
-// import { V3_COLORS } from '../config/theme'
 
 export default class PaymentPrefs extends Component {
   _onBackButtonPress() {

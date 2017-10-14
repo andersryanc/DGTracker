@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Animated, Image, StyleSheet, View, } from 'react-native'
-import { COLORS } from '../config/theme'
+import { COLORS } from '../config'
 
 export default class RequestImage extends PureComponent {
   constructor(props) {

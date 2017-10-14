@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, Text, TextInput, View } from 'react-native'
-import { COLORS } from '../config/theme'
+import { COLORS } from '../config'
 
 export default class TextField extends Component {
   render() {

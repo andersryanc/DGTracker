@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, TouchableOpacity, Platform, StyleSheet, Text } from 'react-native'
 import Icon, { ICON_NAMES } from './Icon'
-import { COLORS } from '../config/theme'
+import { COLORS } from '../config'
 
 const PrefrencesHeader = (props: PrefHeaderType) => {
   const { title, onBackPress, rightAction } = props

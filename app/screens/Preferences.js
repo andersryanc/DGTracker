@@ -12,7 +12,7 @@ import {
 import { signOut } from '../redux/actions/user'
 import Icon, { ICON_NAMES } from '../components/Icon'
 import { RatingStars } from '../components'
-import { COLORS } from '../config/theme'
+import { COLORS } from '../config'
 import { reset } from '../redux/actions/nav'
 
 const routes = {

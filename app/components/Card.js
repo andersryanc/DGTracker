@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native'
-import { COLORS } from '../config/theme'
+import { COLORS } from '../config'
 import Icon, { ICON_NAMES } from './Icon'
 
 export default class Card extends Component {
