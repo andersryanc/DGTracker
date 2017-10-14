@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "289759243912",
-    "firebase_url": "https://deedz-v4-dev.firebaseio.com",
-    "project_id": "deedz-v4-dev",
-    "storage_bucket": "deedz-v4-dev.appspot.com"
+    "project_number": "987149544048",
+    "firebase_url": "https://dgtracker-dev.firebaseio.com",
+    "project_id": "dgtracker-dev",
+    "storage_bucket": "dgtracker-dev.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:289759243912:android:01df281906061161",
+        "mobilesdk_app_id": "1:987149544048:android:17eef32bc74ce8ac",
         "android_client_info": {
-          "package_name": "com.praxeis.deedz"
+          "package_name": "com.mranderson.DGTracker"
         }
       },
       "oauth_client": [
         {
-          "client_id": "289759243912-7mfu0gfm2nte7uk9aal6ufcpsv93k6ui.apps.googleusercontent.com",
+          "client_id": "987149544048-bmorrm94ur6qaudaglpqd3f7dioums80.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDJ4rb0Mw-cZIt7rTdGZxXN1syPIanluMM"
+          "current_key": "AIzaSyBLO_aG-5eO2NhZPZpIfHQx0z5xjrdYAjM"
         }
       ],
       "services": {

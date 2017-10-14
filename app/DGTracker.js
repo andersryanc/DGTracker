@@ -5,10 +5,12 @@ import { addNavigationHelpers } from 'react-navigation'
 import { Keyboard } from 'react-native'
 
 import { RootNavigator } from './config/routes'
-import store from './redux/store'
+import configureStore from './redux/store'
 import { update as updateKeyboard } from './redux/actions/keyboard'
 import { login, logout } from './redux/actions/user'
 import firebase from './config/firebase'
+
+const store = configureStore()
 
 class DGTracker extends Component {
   constructor() {

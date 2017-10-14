@@ -1,4 +1,4 @@
-import { StatusBar } from 'react-native'
+// import { StatusBar } from 'react-native'
 import { RootNavigator } from '../../config/routes'
 
 const initialState = RootNavigator.router.getStateForAction(
@@ -6,11 +6,11 @@ const initialState = RootNavigator.router.getStateForAction(
 )
 
 const nav = (state = initialState, action) => {
-  if (action.routeName === 'DrawerOpen') {
-    StatusBar.setHidden(true)
-  } else {
-    StatusBar.setHidden(false, 'fade')
-  }
+  // if (action.routeName === 'DrawerOpen') {
+  //   StatusBar.setHidden(true)
+  // } else {
+  //   StatusBar.setHidden(false, 'fade')
+  // }
 
   const nextState = RootNavigator.router.getStateForAction(action, state)
   return nextState || state
