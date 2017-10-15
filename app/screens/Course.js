@@ -1,61 +1,44 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import PropTypes from 'prop-types'
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import PropTypes from 'prop-types'
+import { Alert, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { FLAT_COLORS } from '../config'
 import Icon, { ICON_NAMES } from '../components/Icon'
 
-class Home extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      courses: [
-        { key: 1, name: 'Pier Park' },
-        { key: 2, name: 'Vance' },
-        { key: 3, name: 'Dabney' },
-      ]
-    }
-  }
-
+class Course extends Component {
   _addItem = () => {
-    this.setState({
-      courses: [
-        ...this.state.courses,
-        { key: this.state.courses.length + 1, name: 'New Course' },
-      ]
-    })
+    Alert.alert('Begin Round', 'This feature has not been implemented yet.')
   }
 
   _renderItem = ({ item }) => (
     <View style={styles.item}>
-      <View style={styles.itemContent}>
+      <TouchableOpacity
+        style={styles.itemContent}
+        onPress={() => alert('you tapped item: ' + item.id)}
+      >
         <Text style={styles.itemTitle}>
-          {item.name}
         </Text>
-      </View>
+      </TouchableOpacity>
       <View style={styles.itemSep} />
     </View>
   )
 
-  _showMenu = () => {
-
-  }
-
   render() {
-
+    const { course } = this.props.navigation.state.params
     return (
       <View style={styles.container}>
         <View style={styles.titleBar}>
-          <Text style={styles.title}>Courses</Text>
+          <Text style={styles.title}>
+            {course.name}
+          </Text>
 
           <TouchableOpacity
             style={[styles.button, styles.leftButton]}
-            onPress={this._showMenu.bind(this)}
+            onPress={() => this.props.navigation.goBack()}
             hitSlop={{ top: 10, right: 10, bottom: 10, left: 10 }}
           >
             <Icon
-              name={ICON_NAMES.cog}
+              name={ICON_NAMES.chevronLeft}
               size={24}
               fill={'white'}
             />
@@ -75,7 +58,7 @@ class Home extends Component {
         </View>
         <FlatList
           style={styles.list}
-          data={this.state.courses}
+          data={[]}
           renderItem={this._renderItem}
         />
       </View>
@@ -117,6 +100,27 @@ const styles = StyleSheet.create({
   rightButton: {
     right: 10,
   },
+  cancel: {
+    color: 'white',
+  },
+  newItem: {
+    backgroundColor: 'white',
+    alignSelf: 'stretch',
+  },
+  newItemInput: {
+    height: 60,
+    paddingHorizontal: 20,
+  },
+  saveButton: {
+    position: 'absolute',
+    top: 0,
+    right: 20,
+    bottom: 0,
+    justifyContent: 'center',
+  },
+  save: {
+    color: FLAT_COLORS.nephritis,
+  },
   list: {
     flex: 1,
     alignSelf: 'stretch',
@@ -140,7 +144,8 @@ const styles = StyleSheet.create({
   },
 })
 
-Home.propTypes = {
+Course.propTypes = {
+  navigation: PropTypes.object,
 }
 
 export default connect(
@@ -148,4 +153,4 @@ export default connect(
   }),
   dispatch => ({
   })
-)(Home)
+)(Course)

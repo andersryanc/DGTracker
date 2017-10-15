@@ -1,8 +1,8 @@
 // import { StatusBar } from 'react-native'
-import { RootNavigator } from '../../config/routes'
+import { HOME_ROUTE, RootNavigator } from '../../config/routes'
 
 const initialState = RootNavigator.router.getStateForAction(
-  RootNavigator.router.getActionForPathAndParams('Home')
+  RootNavigator.router.getActionForPathAndParams(HOME_ROUTE)
 )
 
 const nav = (state = initialState, action) => {

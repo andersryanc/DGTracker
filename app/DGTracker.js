@@ -8,6 +8,7 @@ import { RootNavigator } from './config/routes'
 import configureStore from './redux/store'
 import { update as updateKeyboard } from './redux/actions/keyboard'
 import { login, logout } from './redux/actions/user'
+import { subscribe } from './redux/actions/courses'
 import firebase from './config/firebase'
 
 StatusBar.setHidden(false)
@@ -52,6 +53,9 @@ class App extends Component {
     this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide)
     this.keyboardDidShowSub = Keyboard.addListener('keyboardDidShow', this.keyboardWillShow)
     this.keyboardDidHideSub = Keyboard.addListener('keyboardDidHide', this.keyboardWillHide)
+  }
+  componentDidMount() {
+    this.props.dispatch(subscribe())
   }
   componentWillUnmount() {
     this.keyboardWillShowSub.remove()

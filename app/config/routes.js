@@ -1,9 +1,12 @@
 import { StackNavigator } from 'react-navigation'
-import { Home } from '../screens'
+import { Courses, Course } from '../screens'
+
+export const HOME_ROUTE = 'Courses'
 
 export const RootNavigator = StackNavigator(
   {
-    Home: { screen: Home },
+    Courses: { screen: Courses },
+    Course: { screen: Course },
   },
   {
     headerMode: 'none'
