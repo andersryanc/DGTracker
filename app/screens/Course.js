@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Alert, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { FLAT_COLORS } from '../config'
 import Icon, { ICON_NAMES } from '../components/Icon'
+import { loadRounds, reset } from '../redux/actions/rounds'
+
+const { width } = Dimensions.get('window')
 
 class Course extends Component {
+  componentWillMount() {
+    const { course } = this.props.navigation.state.params
+    this.props.loadRounds(course.id)
+  }
+
+  componentWillUnmount() {
+    this.props.reset()
+  }
+
   _addItem = () => {
     Alert.alert('Begin Round', 'This feature has not been implemented yet.')
   }
@@ -56,11 +68,16 @@ class Course extends Component {
             />
           </TouchableOpacity>
         </View>
-        <FlatList
+        {this.props.isLoaded && this.props.rounds.length === 0 && <View style={styles.noRoundsContainer}>
+          <Text style={styles.noRoundsTitle}>No Rounds</Text>
+          <Text style={styles.noRoundsText}>You haven't played any games yet.</Text>
+          <Text style={styles.noRoundsText}>Tap the plus icon above to start a new round.</Text>
+        </View>}
+        {this.props.isLoaded && this.props.rounds.length > 0 && <FlatList
           style={styles.list}
           data={[]}
           renderItem={this._renderItem}
-        />
+        />}
       </View>
     )
   }
@@ -103,23 +120,21 @@ const styles = StyleSheet.create({
   cancel: {
     color: 'white',
   },
-  newItem: {
-    backgroundColor: 'white',
+  noRoundsContainer: {
+    flex: 1,
     alignSelf: 'stretch',
-  },
-  newItemInput: {
-    height: 60,
-    paddingHorizontal: 20,
-  },
-  saveButton: {
-    position: 'absolute',
-    top: 0,
-    right: 20,
-    bottom: 0,
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  save: {
-    color: FLAT_COLORS.nephritis,
+  noRoundsTitle: {
+    fontSize: 24,
+    color: 'rgba(0,0,0,0.75)',
+    fontWeight: 'bold',
+    marginVertical: 5,
+  },
+  noRoundsText: {
+    color: 'rgba(0,0,0,0.5)',
+    textAlign: 'center',
   },
   list: {
     flex: 1,
@@ -145,12 +160,19 @@ const styles = StyleSheet.create({
 })
 
 Course.propTypes = {
+  isLoaded: PropTypes.bool.isRequired,
+  loadRounds: PropTypes.func.isRequired,
   navigation: PropTypes.object,
+  rounds: PropTypes.array.isRequired,
 }
 
 export default connect(
   state => ({
+    isLoaded: state.rounds.isLoaded,
+    rounds: state.rounds.data,
   }),
   dispatch => ({
+    loadRounds: id => dispatch(loadRounds(id)),
+    reset: () => dispatch(reset())
   })
 )(Course)
