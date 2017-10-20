@@ -39,6 +39,7 @@
 		74BB640628664AC6C5B39C2D /* libPods-DGTracker-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC4EAF7E6F387AFC4E5C453 /* libPods-DGTracker-tvOS.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		83D8C405CD753D85591C0EB2 /* libPods-DGTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0E613FBEC9EB6A51D178667 /* libPods-DGTracker.a */; };
+		9466B6161F999E460015A313 /* libRNMotionManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9466B6131F999E3B0015A313 /* libRNMotionManager.a */; };
 		9494B9FD1F75D1B300A7D782 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9494B9FC1F75D1B300A7D782 /* GoogleService-Info.plist */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C56D95489471ADABDBC6B7EC /* libPods-DGTracker-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F81BBBE652DE88900105330F /* libPods-DGTracker-tvOSTests.a */; };
@@ -248,6 +249,20 @@
 			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
 			remoteInfo = RCTCameraRoll;
 		};
+		9466B6121F999E3B0015A313 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9466B5EB1F999E3B0015A313 /* RNMotionManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BB9CC7ED1AE0A2EB008A1D08;
+			remoteInfo = RNMotionManager;
+		};
+		9466B6141F999E3B0015A313 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9466B5EB1F999E3B0015A313 /* RNMotionManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BB9CC7F81AE0A2EB008A1D08;
+			remoteInfo = RNMotionManagerTests;
+		};
 		948875B51F6709DF00078733 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -338,6 +353,7 @@
 		9443E6211F6DBD8C0030DE8E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		9443E6221F6DBD8C0030DE8E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		9451442F1F71942F003958F7 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
+		9466B5EB1F999E3B0015A313 /* RNMotionManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMotionManager.xcodeproj; path = "../node_modules/react-native-motion-manager/RNMotionManager.xcodeproj"; sourceTree = "<group>"; };
 		9494B9FC1F75D1B300A7D782 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9497ED031F719F3B008593EA /* DGTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DGTracker.entitlements; path = DGTracker/DGTracker.entitlements; sourceTree = "<group>"; };
 		A48C2F5AFB675AE33F51DA6D /* Pods-DGTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DGTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-DGTracker/Pods-DGTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -362,6 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9466B6161F999E460015A313 /* libRNMotionManager.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -539,6 +556,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				9466B5EB1F999E3B0015A313 /* RNMotionManager.xcodeproj */,
 				9451442F1F71942F003958F7 /* RCTCameraRoll.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -621,6 +639,15 @@
 			isa = PBXGroup;
 			children = (
 				9451443C1F71942F003958F7 /* libRCTCameraRoll.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9466B5EC1F999E3B0015A313 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9466B6131F999E3B0015A313 /* libRNMotionManager.a */,
+				9466B6151F999E3B0015A313 /* RNMotionManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -867,6 +894,10 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
+				{
+					ProductGroup = 9466B5EC1F999E3B0015A313 /* Products */;
+					ProjectRef = 9466B5EB1F999E3B0015A313 /* RNMotionManager.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1066,6 +1097,20 @@
 			fileType = archive.ar;
 			path = libRCTCameraRoll.a;
 			remoteRef = 9451443B1F71942F003958F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9466B6131F999E3B0015A313 /* libRNMotionManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNMotionManager.a;
+			remoteRef = 9466B6121F999E3B0015A313 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9466B6151F999E3B0015A313 /* RNMotionManagerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RNMotionManagerTests.xctest;
+			remoteRef = 9466B6141F999E3B0015A313 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		948875B61F6709DF00078733 /* libRCTBlob-tvOS.a */ = {
