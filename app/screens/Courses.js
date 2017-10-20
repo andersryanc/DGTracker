@@ -5,6 +5,7 @@ import { Alert, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } 
 import { FLAT_COLORS } from '../config'
 import Icon, { ICON_NAMES } from '../components/Icon'
 import { addItem } from '../redux/actions/courses'
+import TitleBar from '../components/TitleBar'
 
 class Courses extends Component {
   constructor(props) {
@@ -53,44 +54,24 @@ class Courses extends Component {
   )
 
   _showMenu = () => {
-
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.titleBar}>
-          <Text style={styles.title}>Courses</Text>
+        <TitleBar
+          title="Courses"
+          leftButton={{
+            iconName: ICON_NAMES.cog,
+            onPress: this._showMenu.bind(this),
+          }}
+          rightButton={{
+            iconName: ICON_NAMES.plus,
+            onPress: this._addItem.bind(this),
+            onCancel: this.state.newItem ? this._cancel.bind(this) : null
+          }}
+        />
 
-          <TouchableOpacity
-            style={[styles.button, styles.leftButton]}
-            onPress={this._showMenu.bind(this)}
-            hitSlop={{ top: 10, right: 10, bottom: 10, left: 10 }}
-          >
-            <Icon
-              name={ICON_NAMES.cog}
-              size={24}
-              fill={'white'}
-            />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.button, styles.rightButton]}
-            onPress={this.state.newItem ? this._cancel.bind(this) : this._addItem.bind(this)}
-            hitSlop={{ top: 10, right: 10, bottom: 10, left: 10 }}
-          >
-            {this.state.newItem ? (
-              <Text style={styles.cancel}>Cancel</Text>
-            ) : (
-                <Icon
-                  name={ICON_NAMES.plus}
-                  size={24}
-                  fill={'white'}
-                />
-              )
-            }
-          </TouchableOpacity>
-        </View>
         {this.state.newItem && <View style={styles.newItem}>
           <TextInput
             style={styles.newItemInput}
@@ -117,7 +98,6 @@ class Courses extends Component {
   }
 }
 
-const STATUS_BAR_HEIGHT = 20
 
 const styles = StyleSheet.create({
   container: {
@@ -125,34 +105,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-  },
-  titleBar: {
-    backgroundColor: FLAT_COLORS.nephritis,
-    width: '100%',
-    height: 64,
-    paddingTop: STATUS_BAR_HEIGHT,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 24,
-  },
-  button: {
-    position: 'absolute',
-    top: STATUS_BAR_HEIGHT,
-    bottom: 0,
-    justifyContent: 'center',
-  },
-  leftButton: {
-    left: 10,
-  },
-  rightButton: {
-    right: 10,
-  },
-  cancel: {
-    color: 'white',
   },
   newItem: {
     backgroundColor: 'white',
