@@ -9,7 +9,6 @@
 
 - Download the [Facebook iOS SDKs](https://developers.facebook.com/docs/ios/) and place them in your documents folder at: `~/Documents/FacebookSDK` (the `react-native-fbsdk` npm library references those frameworks at that specific location, otherwise the project won't build properly).
 - Run `npm i` to install all project dependencies
-- Download [Genymotion](https://www.genymotion.com/) or other android emulator for testing
 
 # Development
 
@@ -84,15 +83,3 @@ In order for the Google Maps API to work properly, you will need to update the `
 ```
 keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
 ```
-
-# Firebase Documentation
-
-We are currently using v3 of the [react-native-firebase](https://github.com/invertase/react-native-firebase) library so that we can take advantage of the new [Cloud Firestore](https://firebase.google.com/docs/firestore/) offered by Firebase. Both the library and the firestore are in beta but appear to be working smoothly so far. The standard react-native-firebase documentation is not as up to date as the following site (as of writing this 2017-10-11):
-
-https://rnfirebase.io/docs/v3.0.*/firestore/reference/DocumentReference
-
-# Troubleshooting
-
-- Running into issues with `Maximum Call Stack Exceeded` while using hot reloading? You might double check you aren't using an import that includes the current file. Like `app/components/index.js` which loads all the components into a single export object to make importing them in other files easier. But if you try and import components into each other through that index file, it will break things.
-
-- You may encounter issues with Tipsi-Stripe. According to [this post](https://github.com/tipsi/tipsi-stripe/issues/131) you might need to modify the Stripe imports in two of the files referenced in that included xcodeproject. Open up Xcode, run a build, click the error messages and change `#import <Stripe/Stripe.h>` to `#import "Stripe.h"`. you may also need to verify the Header Search Paths for that project as well, to ensure that the one with pods in the path has Stripe on the end of it, like: `${SRCROOT}/../../../ios/Pods/Headers/Public/Stripe` (recursive)
