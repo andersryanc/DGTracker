@@ -1,3 +1,10 @@
+# Useful libraries / Docs
+
+- https://github.com/mtford90/react-native-watch-connectivity
+- https://github.com/react-native-sensors/react-native-sensors
+- https://github.com/pwmckenna/react-native-motion-manager
+- https://developer.apple.com/documentation/coremotion/cmmotionmanager
+
 # Project Setup
 
 - Download the [Facebook iOS SDKs](https://developers.facebook.com/docs/ios/) and place them in your documents folder at: `~/Documents/FacebookSDK` (the `react-native-fbsdk` npm library references those frameworks at that specific location, otherwise the project won't build properly).
